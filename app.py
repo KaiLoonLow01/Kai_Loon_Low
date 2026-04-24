@@ -3,22 +3,22 @@ learn_data = [
     {
         "title": "What is Americano?",
         "content": "An Americano is a coffee drink made by adding hot water to a shot of espresso. This process creates a coffee that has a similar strength to regular brewed coffee but retains the rich flavor of espresso. It is popular because it balances intensity and smoothness, making it enjoyable for many coffee drinkers.",
-        "image": "/static/images/image.jpg"
+        "image": "/static/images/americano.jpg"
     },
     {
         "title": "Types of Americano",
         "content": "There are different types of Americano depending on how it is prepared. A single shot Americano is lighter and less intense, while a double shot creates a stronger and richer flavor. Additionally, the roast level of the beans, such as light or dark roast, also affects the overall taste and aroma of the drink.",
-        "image": "/static/images/image.jpg"
+        "image": "/static/images/americano.jpg"
     },
     {
         "title": "Bitter Taste",
         "content": "Bitterness in coffee is a common taste characteristic that comes from compounds released during brewing. When coffee is over-extracted, it becomes more bitter and less pleasant. This bitterness can feel strong and sharp on the tongue, and understanding it helps you control the brewing process to achieve a balanced flavor.",
-        "image": "/static/images/image.jpg"
+        "image": "/static/images/americano.jpg"
     },
     {
         "title": "Ingredients",
         "content": "To make an Americano, you need a few simple ingredients and tools. The main components are freshly ground coffee beans and hot water. An espresso machine is used to extract the coffee properly. The quality of the beans and the freshness of the grind play a major role in the final taste of the drink.",
-        "image": "/static/images/image.jpg"
+        "image": "/static/images/americano.jpg"
     },
     {
         "title": "Coffee Beans",
