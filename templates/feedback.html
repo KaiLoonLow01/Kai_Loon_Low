@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block title %}Feedback{% endblock %}
+
+{% block content %}
+<h2>Feedback</h2>
+
+{% if option == correct %}
+    <p class="text-success">✅ Correct!</p>
+{% else %}
+    <p class="text-danger">❌ Incorrect</p>
+{% endif %}
+
+<p>{{ feedback }}</p>
+
+<a href="/quiz/{{ next_q }}" class="btn btn-primary">Next</a>
+{% endblock %}
