@@ -3,16 +3,71 @@
 {% block title %}Quiz{% endblock %}
 
 {% block content %}
-<h2>{{ q.question }}</h2>
+<h2 class="mb-4">{{ q.question }}</h2>
 
-<form method="POST">
-    {% for opt in q.options %}
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="answer" value="{{ opt }}" required>
-            <label class="form-check-label">{{ opt }}</label>
+<div class="row g-4 align-items-start">
+
+  <!-- LEFT: Options (your original form, just wrapped in a column) -->
+  <div class="col-md-8">
+    <form method="POST">
+      {% for opt in q.options %}
+        <div class="form-check mb-2">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="answer"
+            id="opt{{ loop.index }}"
+            value="{{ opt }}"
+            required
+            {% if selected is defined and selected == opt %}checked{% endif %}
+          >
+          <label class="form-check-label" for="opt{{ loop.index }}">{{ opt }}</label>
         </div>
-    {% endfor %}
+      {% endfor %}
 
-    <button type="submit" class="btn btn-primary mt-3">Submit</button>
-</form>
+      <button type="submit" class="btn btn-primary mt-3" 
+      {% if feedback_msg is defined and feedback_msg %}
+      disabled
+      {% endif %}
+      >Submit</button>
+    </form>
+  </div>
+
+ 
+  <div class="col-md-4">
+    {% if feedback_msg is defined and feedback_msg %}
+      <div class="card shadow-sm border-2
+           {% if is_correct %}border-success{% else %}border-danger{% endif %}">
+        <div class="card-body">
+
+          <h5 class="card-title mb-2">
+            {% if is_correct %}Correct{% else %}Incorrect{% endif %}
+          </h5>
+          <p class="card-text mb-0">{{ feedback_msg }}</p>
+
+          {% if (not is_correct) and q.answer %}
+            <hr class="my-3">
+            <div class="small text-muted">Correct answer</div>
+            <div class="fw-semibold">{{ q.answer }}</div>
+          {% endif %}
+
+          
+            <hr class="my-3">
+            
+          
+
+        </div>
+      </div>
+    
+      <a href="/quiz/{{ next_q }}" class="btn btn-success w-100">
+      {% if next_q>total %}
+        See Result
+      {% else %}
+        Next Quiz
+      {% endif %}
+      </a>
+    {% endif %}
+  </div>
+
+</div>
 {% endblock %}

@@ -1,45 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>{% block title %}Americano App{% endblock %}</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{% block title %}Americano App{% endblock %}</title>
 
-    <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-    <style>
-        body {
-            padding-top: 60px;
-        }
-        .navbar-brand:hover {
-            opacity: 0.8;
-        }
-    </style>
+  <style>
+    body { padding-top: 70px; }
+    .navbar-brand:hover { opacity: 0.85; }
+
+    /* optional: nicer spacing for nav links */
+    .navbar .nav-link { opacity: 0.85; }
+    .navbar .nav-link:hover,
+    .navbar .nav-link:focus { opacity: 1; }
+    .navbar .nav-link.active { opacity: 1; font-weight: 600; }
+  </style>
 </head>
 
 <body>
 
 <!-- Navbar -->
-<nav class="navbar navbar-dark bg-dark fixed-top">
-    <div class="container-fluid">
-        <a href="/" class="navbar-brand mb-0 h1 text-decoration-none">
-            ☕ Americano Learning
-        </a>
+<nav class="navbar navbar-dark bg-dark fixed-top navbar-expand-md">
+  <div class="container-fluid">
+
+    <a href="/" class="navbar-brand mb-0 h1 text-decoration-none">
+      ☕ Americano Making
+    </a>
+
+    <!-- Mobile toggle -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+            aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link {% if request.path == '/' %}active{% endif %}" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {% if request.path.startswith('/learn') and  step is defined and step<12 %}active{% endif %}" href="/learn/1">Insights</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {% if request.path.startswith('/learn') and step is defined and step>=12 %}active{% endif %}" href="/learn/12">Tutorial</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {% if request.path.startswith('/quiz') or request.path.startswith('/feedback') or request.path.startswith('/result') %}active{% endif %}"
+             href="/quiz/1">Quiz</a>
+        </li>
+      </ul>
     </div>
+
+  </div>
 </nav>
 
 <!-- Main Content -->
 <div class="container mt-4">
-    {% block content %}
-    {% endblock %}
+  {% block content %}{% endblock %}
 </div>
 
 <!-- Footer -->
 <footer class="text-center mt-5">
-    <hr>
-    <p>© Americano Learning App</p>
+  <hr>
+  <p>© Americano Learning App</p>
 </footer>
 
+<!-- Bootstrap JS (needed for navbar toggle) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

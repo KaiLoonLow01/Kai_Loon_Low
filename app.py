@@ -16,14 +16,14 @@ learn_data = [
         "image": "/static/images/americano.jpg"
     },
     {
-        "title": "Ingredients",
+        "title": "Ingredients & Tools",
         "content": "To make an Americano, you need a few simple ingredients and tools. The main components are freshly ground coffee beans and hot water. An espresso machine is used to extract the coffee properly. The quality of the beans and the freshness of the grind play a major role in the final taste of the drink.",
         "image": "/static/images/americano.jpg"
     },
     {
         "title": "Coffee Beans",
         "content": "Coffee beans are one of the most important factors that influence the taste of an Americano. Different types of beans produce different flavor profiles, ranging from smooth and mild to strong and bitter. By exploring different beans, you can understand how each type affects the final taste of your coffee.",
-        "action": "/beans"
+        "action": "/learn/6"
     },
     {
         "title": "Best Beans",
@@ -36,34 +36,36 @@ learn_data = [
         # "image": "/static/images/temperature.jpg"
     },
     {
-        "title": "Preparation",
-        "content": "Preparing an Americano involves several important steps. First, the coffee beans are ground to the correct consistency. Then, the coffee is tamped evenly in the portafilter before brewing the espresso. Finally, hot water is added to the espresso to create the Americano. Each step must be done carefully to achieve the best flavor.",
+        "title": "Step-1 Pull a ‘blank shot’",
+        "content": "Before brewing espresso, run hot water through the machine with an empty portafilter (no coffee). This quick “blank shot” warms up the group head and portafilter, stabilizes brewing temperature, and rinses away any old coffee residue. Let the water run for about 3–5 seconds (or until it flows smoothly), and if possible, run it into your cup to preheat the cup as well. Discard the water, then proceed to brew your espresso.",
         "image": "/static/images/preparation.jpg"
     }
     ,
     {
-        "title": "Step-1: Grinding Coffee Beans",
+        "title": "Step-2: Grinding Coffee Beans",
         "content": "The first step in preparing an Americano is grinding the coffee beans. The beans should be ground to a medium-fine consistency, similar to table salt. This allows proper extraction during brewing. If the grind is too coarse, the coffee will be weak, and if it is too fine, it may become overly bitter or over-extracted.",
         "image": "/static/images/preparation.jpg"
     },
     {
-        "title": "Step-2: Tamping the Coffee",
+        "title": "Step-3 Fill the portafilter",
+        "content": "For a single shot of espresso, use about 0.2 ounces of ground beans (one rounded teaspoon). Use one rounded tablespoon (0.6 ounces) of ground beans for a double espresso.",
+        "image": "/static/images/preparation.jpg"
+    }
+    ,
+    {
+        "title": "Step-4: Tamping the Coffee",
         "content": "After grinding, the coffee grounds are placed into the portafilter and evenly tamped down using a tamper. This step is important because it ensures uniform pressure during extraction. Uneven tamping can cause water to flow irregularly, leading to poor flavor balance in the espresso shot.",
         "image": "/static/images/preparation.jpg"
     },
     {
-        "title": "Step-3: Brewing Espresso",
+        "title": "Step-5: Brewing Espresso",
         "content": "Once the coffee is properly tamped, it is placed into the espresso machine for brewing. Hot pressurized water is forced through the compacted coffee grounds to extract rich espresso. The brewing time usually lasts around 25 to 30 seconds, producing a strong and concentrated coffee base.",
         "image": "/static/images/preparation.jpg"
     },
+    
     {
-        "title": "Step-4: Adding Hot Water",
-        "content": "After the espresso is brewed, hot water is added to it to create the Americano. The ratio of water to espresso can vary depending on taste preference. This step dilutes the intensity of espresso while preserving its aroma and flavor, resulting in a smoother coffee drink.",
-        "image": "/static/images/preparation.jpg"
-    },
-    {
-        "title": "Step-5: Final Americano",
-        "content": "The final step is serving the Americano. At this stage, the drink has a balanced flavor that combines the strength of espresso with the smoothness of hot water. It can be enjoyed plain or customized with milk or sugar depending on personal preference.",
+        "title": "Step-6: Adding Hot Water And Serve",
+        "content": "After the espresso is brewed, hot water is added to it to create the Americano. The ratio of water to espresso can vary depending on taste preference. This step dilutes the intensity of espresso while preserving its aroma and flavor. The final step is serving the Americano. At this stage, the drink has a balanced flavor that combines the strength of espresso with the smoothness of hot water. It can be enjoyed plain or customized with milk or sugar depending on personal preference.",
         "image": "/static/images/preparation.jpg"
     }
 ]
@@ -73,30 +75,59 @@ quiz_data = [
         "question": "Which bean produces a more bitter taste?",
         "options": ["Arabica", "Robusta", "Dark roast"],
         "answer": "Robusta",
+        "tip": "Tip: Bean variety can strongly affect bitterness; Robusta usually has higher caffeine.",
         "feedback": {
-            "Arabica": "Arabica is smoother and less bitter.",
-            "Robusta": "Correct! Robusta is more bitter due to high caffeine.",
-            "Dark roast": "Roast affects taste, but bean type matters more here."
+            "Arabica": "Arabica is usually smoother and less bitter than Robusta.",
+            "Robusta": "Correct! Robusta tends to be more bitter due to higher caffeine and stronger flavor.",
+            "Dark roast": "Roast level affects bitterness, but this question is about bean type."
         }
     },
     {
-        "question": "Which factor affects bitterness more?",
+        "question": "Which factor affects bitterness more during extraction?",
         "options": ["Water temperature", "Brewing time", "Amount of sugar"],
         "answer": "Water temperature",
+        "tip": "Tip: Extraction depends on brewing variables like temperature and time, not sweetness.",
         "feedback": {
-            "Water temperature": "Correct! Temperature controls extraction.",
-            "Brewing time": "Partially correct but less impactful.",
-            "Amount of sugar": "Sugar affects sweetness, not bitterness."
+            "Water temperature": "Correct! Temperature influences extraction rate and bitterness.",
+            "Brewing time": "Brewing time matters too, but temperature is a major driver of extraction.",
+            "Amount of sugar": "Sugar changes sweetness, not extraction bitterness."
         }
     },
     {
-        "question": "Which gives stronger coffee?",
+        "question": "Which gives a stronger Americano base?",
         "options": ["Single shot", "Double shot", "Adding more water"],
         "answer": "Double shot",
+        "tip": "Tip: Strength is primarily determined by how much espresso you extract before diluting.",
         "feedback": {
-            "Single shot": "Single shot is lighter and less strong.",
-            "Double shot": "Correct! More espresso = stronger coffee.",
-            "Adding more water": "Water dilutes coffee, making it weaker."
+            "Single shot": "Single shot is lighter and less strong than a double shot.",
+            "Double shot": "Correct! More espresso creates a stronger base.",
+            "Adding more water": "More water dilutes coffee, making it weaker."
+        }
+    },
+
+    # New Q4 (from image)
+    {
+        "question": "Which roast gives a smoky flavor?",
+        "options": ["Light roast", "Dark roast", "Medium roast"],
+        "answer": "Dark roast",
+        "tip": "Tip: Dark roasts are roasted longer, which brings out deeper, smokier flavors and reduces acidity.",
+        "feedback": {
+            "Light roast": "Light roasts tend to be brighter and more acidic, with less smoky flavor.",
+            "Dark roast": "Correct! Dark roast commonly has a smoky, bold flavor due to longer roasting.",
+            "Medium roast": "Medium roasts are more balanced and typically less smoky than dark roasts."
+        }
+    },
+
+    # New Q5 (from image)
+    {
+        "question": "Which factor mainly controls how strong an Americano tastes?",
+        "options": ["Amount of espresso", "Water temperature", "Amount of sugar"],
+        "answer": "Amount of espresso",
+        "tip": "Tip: Strength mostly depends on how much espresso is used and how much it’s diluted with water.",
+        "feedback": {
+            "Amount of espresso": "Correct! More espresso (e.g., double shot) generally makes a stronger Americano.",
+            "Water temperature": "Temperature affects extraction and bitterness, but it’s not the main control for overall strength.",
+            "Amount of sugar": "Sugar changes sweetness, not the coffee’s strength."
         }
     }
 ]
@@ -124,7 +155,7 @@ beans = [
     }
 ]
 
-
+print(len(learn_data)+len(beans))
 app = Flask(__name__)
 app.secret_key = "secret"
 
@@ -135,86 +166,55 @@ def home():
 # Start
 session={}
 session['answers']=[]
-session['progress']=[]
-@app.route("/start")
-def start():
-    return redirect("/learn/0")
-
-# Learning
+session['corrected']=0
+session['progress']=0
+@app.route("/learn_complete")
+def end_learning():
+    return render_template("end_learn.html")
 @app.route("/learn/<int:step>")
 def learn(step):
-    if step >= len(learn_data):
-        return redirect("/quiz/0")
-
-    lesson = learn_data[step]
-    session["progress"].append(step)
+    if step > len(learn_data)+4:
+        return redirect("/learn_complete")
+    elif step>=6 and step<=9:
+        return render_template("bean.html",bean=beans[step-6],step=step,index=step-6, total=len(beans))
+    lesson = {}
+    if step>=10:
+        lesson=learn_data[step-5]
+    else:
+        lesson=learn_data[step-1]
+        
+    session["progress"]=step
 
     return render_template("learn.html", lesson=lesson, step=step)
 
-# Beans entry point
-@app.route("/beans")
-def beans_intro():
-    return redirect("/beans/0")
-
-
-
-@app.route("/beans/<int:i>")
-def bean_page(i):
-    if i >= len(beans):
-        return redirect("/learn/5")  # continue learning
-
-    bean = beans[i]
-    return render_template("bean.html", bean=bean, index=i, total=len(beans))
-
-
-
-@app.route("/select_bean/<int:i>")
-def select_bean(i):
-    session["selected_bean"] = beans[i]["name"]
-    return redirect("/learn/5")  # continue learning
-
-
 @app.route("/quiz/<int:q>", methods=["GET", "POST"])
 def quiz(q):
-    if q >= len(quiz_data):
+    if q==1:
+        session['corrected']=0
+        session['answers']=[]
+    if q > len(quiz_data):
         return redirect("/result")
 
     if request.method == "POST":
+        question = quiz_data[q-1]
+        correct = question["answer"]
         selected = request.form.get("answer")
         print(selected)
-        session['answers'].append(selected)
+        is_correct=False
+        if selected==correct :
+            if selected not in session['answers']:
+                session["corrected"]+=1
+                session['answers'].append(selected)
+            is_correct=True
         print(session)
-        return redirect(f"/feedback/{q}/{selected}")
+        return render_template("quiz.html",is_correct=is_correct,feedback_msg=question['feedback'][selected],q=question,next_q=q+1,total=len(quiz_data))
 
-    return render_template("quiz.html", q=quiz_data[q], index=q)
+    return render_template("quiz.html", q=quiz_data[q-1], index=q-1)
 
-# Feedback
-@app.route("/feedback/<int:q>/<option>")
-def feedback(q, option):
-    question = quiz_data[q]
-    # print(question)
-    correct = question["answer"]
-    # print(correct)
-    feedback_text = question["feedback"][option]
-    
-    return render_template(
-        "feedback.html",
-        option=option,
-        correct=correct,
-        feedback=feedback_text,
-        next_q=q + 1
-    )
 
-# Result
 @app.route("/result")
 def result():
-    score = 0
-    for i, ans in enumerate(session["answers"]):
-        if ans == quiz_data[i]["answer"]:
-            print(ans)
-            score += 1
-    print(score)
-    return render_template("result.html", score=score, total=len(quiz_data))
+    return render_template("result.html", score=session["corrected"], total=len(quiz_data))
 
 
 if __name__ == "__main__":
