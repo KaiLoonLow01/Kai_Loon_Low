@@ -3,9 +3,10 @@
 {% block title %}Result{% endblock %}
 
 {% block content %}
-<h2>Your Score</h2>
-
-<p class="fs-4">{{ score }} / {{ total }}</p>
-
-<a href="/" class="btn btn-success">Restart</a>
-{% endblock %}  
+<section class="result-wrap text-center">
+  <h1 class="complete-title">Quiz Completed!</h1>
+  <p class="result-score">{{ score }} / {{ total }}</p>
+  <p class="lesson-text mx-auto">Great effort. Review lessons again any time and improve your score.</p>
+  <a href="/" class="btn btn-brand-dark action-btn mt-3">Back to Home</a>
+</section>
+{% endblock %}

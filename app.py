@@ -2,74 +2,74 @@ from flask import Flask, render_template, request, redirect
 learn_data = [
     {
         "title": "What is Americano?",
-        "content": "An Americano is a coffee drink made by adding hot water to a shot of espresso. This process creates a coffee that has a similar strength to regular brewed coffee but retains the rich flavor of espresso. It is popular because it balances intensity and smoothness, making it enjoyable for many coffee drinkers.",
-        "image": "/static/images/americano.jpg"
+        "content": "An Americano is made by adding hot water to espresso, creating a drink similar in strength to brewed coffee while keeping espresso’s rich flavor. It offers a smooth balance of intensity and is widely enjoyed.",
+        "image": "/static/images/home.jpg"
     },
     {
         "title": "Types of Americano",
-        "content": "There are different types of Americano depending on how it is prepared. A single shot Americano is lighter and less intense, while a double shot creates a stronger and richer flavor. Additionally, the roast level of the beans, such as light or dark roast, also affects the overall taste and aroma of the drink.",
-        "image": "/static/images/americano.jpg"
+        "content": "Americanos vary by preparation. A single shot is lighter, while a double shot is stronger and richer. Bean roast levels, such as light or dark, also influence the flavor and aroma.",
+        "image": "/static/images/type1.jpg"
+        
     },
     {
         "title": "Bitter Taste",
-        "content": "Bitterness in coffee is a common taste characteristic that comes from compounds released during brewing. When coffee is over-extracted, it becomes more bitter and less pleasant. This bitterness can feel strong and sharp on the tongue, and understanding it helps you control the brewing process to achieve a balanced flavor.",
-        "image": "/static/images/americano.jpg"
+        "content": "Bitterness in coffee comes from compounds released during brewing. Over-extraction increases bitterness, making the taste sharp and unpleasant. Understanding this helps achieve a balanced flavor.",
+        "image": "/static/images/bitter-taste.jpg"
     },
     {
         "title": "Ingredients & Tools",
-        "content": "To make an Americano, you need a few simple ingredients and tools. The main components are freshly ground coffee beans and hot water. An espresso machine is used to extract the coffee properly. The quality of the beans and the freshness of the grind play a major role in the final taste of the drink.",
-        "image": "/static/images/americano.jpg"
+        "content": "To make an Americano, you need coffee beans, hot water, and an espresso machine. Fresh beans and proper grinding are key to achieving the best flavor.",
+        "image": "/static/images/ingredients.jpg"
     },
     {
         "title": "Coffee Beans",
-        "content": "Coffee beans are one of the most important factors that influence the taste of an Americano. Different types of beans produce different flavor profiles, ranging from smooth and mild to strong and bitter. By exploring different beans, you can understand how each type affects the final taste of your coffee.",
-        "action": "/learn/6"
+        "content": "Coffee beans greatly affect flavor, ranging from mild to strong and bitter. Trying different beans helps you understand how each type shapes the final taste.",
+         "image": "/static/images/coffee-beans.jpg"
     },
     {
         "title": "Best Beans",
-        "content": "Arabica beans are often considered the best choice for making an Americano because of their smooth, balanced, and slightly acidic flavor. They are less bitter compared to Robusta beans, making them more enjoyable for most people. Choosing the right beans can significantly improve your overall coffee experience.",
+        "content": "Arabica beans are ideal for Americanos due to their smooth, balanced, and slightly acidic flavor. They are less bitter than Robusta and generally preferred by most coffee drinkers.",
         "image": "/static/images/beans/arabica.png"
     },
     {
         "title": "Temperature",
-        "content": "Temperature plays a crucial role in making a good Americano. The ideal temperature for brewing espresso is between 90 to 96 degrees Celsius. If the water is too hot, it can over-extract the coffee and make it bitter. If it is too cold, the coffee may taste weak and underdeveloped.",
-        # "image": "/static/images/temperature.jpg"
+        "content": "Temperature is crucial in brewing. The ideal range is 90–96°C. Too hot causes bitterness, while too cold leads to weak and underdeveloped coffee.",
+        "image": "/static/images/temparature.jpg"
     },
     {
         "title": "Step-1 Pull a ‘blank shot’",
-        "content": "Before brewing espresso, run hot water through the machine with an empty portafilter (no coffee). This quick “blank shot” warms up the group head and portafilter, stabilizes brewing temperature, and rinses away any old coffee residue. Let the water run for about 3–5 seconds (or until it flows smoothly), and if possible, run it into your cup to preheat the cup as well. Discard the water, then proceed to brew your espresso.",
-        "image": "/static/images/preparation.jpg"
+        "content": "Run hot water through the machine without coffee to warm it up and remove residue. Let it flow for a few seconds, then discard the water before brewing.",
+        "image": "/static/images/blank.jpg"
     }
     ,
     {
         "title": "Step-2: Grinding Coffee Beans",
-        "content": "The first step in preparing an Americano is grinding the coffee beans. The beans should be ground to a medium-fine consistency, similar to table salt. This allows proper extraction during brewing. If the grind is too coarse, the coffee will be weak, and if it is too fine, it may become overly bitter or over-extracted.",
-        "image": "/static/images/preparation.jpg"
+        "content": "Grind beans to a medium-fine texture like table salt. Too coarse makes weak coffee, while too fine causes over-extraction and bitterness.",
+        "image": "/static/images/grind.jpg"
     },
     {
         "title": "Step-3 Fill the portafilter",
-        "content": "For a single shot of espresso, use about 0.2 ounces of ground beans (one rounded teaspoon). Use one rounded tablespoon (0.6 ounces) of ground beans for a double espresso.",
-        "image": "/static/images/preparation.jpg"
+        "content": "Use about 0.2 oz (1 teaspoon) for a single shot and 0.6 oz (1 tablespoon) for a double shot.",
+        "image": "/static/images/fill.jpg"
     }
     ,
     {
         "title": "Step-4: Tamping the Coffee",
-        "content": "After grinding, the coffee grounds are placed into the portafilter and evenly tamped down using a tamper. This step is important because it ensures uniform pressure during extraction. Uneven tamping can cause water to flow irregularly, leading to poor flavor balance in the espresso shot.",
-        "image": "/static/images/preparation.jpg"
+        "content": "Press the coffee evenly in the portafilter using a tamper. Proper tamping ensures even extraction and balanced flavor.",
+        "video": "/static/videos/temp.mp4"
     },
     {
         "title": "Step-5: Brewing Espresso",
-        "content": "Once the coffee is properly tamped, it is placed into the espresso machine for brewing. Hot pressurized water is forced through the compacted coffee grounds to extract rich espresso. The brewing time usually lasts around 25 to 30 seconds, producing a strong and concentrated coffee base.",
-        "image": "/static/images/preparation.jpg"
+        "content": "Place the portafilter in the machine and brew for 25–30 seconds. Pressurized water extracts a strong and rich espresso.",
+        "video": "/static/videos/brew.mp4"
     },
     
     {
         "title": "Step-6: Adding Hot Water And Serve",
-        "content": "After the espresso is brewed, hot water is added to it to create the Americano. The ratio of water to espresso can vary depending on taste preference. This step dilutes the intensity of espresso while preserving its aroma and flavor. The final step is serving the Americano. At this stage, the drink has a balanced flavor that combines the strength of espresso with the smoothness of hot water. It can be enjoyed plain or customized with milk or sugar depending on personal preference.",
-        "image": "/static/images/preparation.jpg"
+        "content": "Add hot water to the espresso to create an Americano. Adjust the ratio to taste, then serve. Enjoy it plain or with milk or sugar.",
+        "image": "/static/images/americano.jpg"
     }
 ]
-
 quiz_data = [
     {
         "question": "Which bean produces a more bitter taste?",
@@ -141,12 +141,12 @@ beans = [
     {
         "name": "Robusta",
         "content": "Robusta coffee is characterized by its strong, bold flavor and higher caffeine content compared to Arabica. It has a more bitter and earthy taste, which makes it popular for espresso blends where a rich crema is desired. Robusta plants are easier to grow and more resistant to disease, making these beans more affordable and widely used in instant coffee products.",
-        "image": "https://imgs.search.brave.com/LNJ11fBFLmZYvWFJlUYmXiDhratRvo13TEca7-cmvOk/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTI3/OTAwMTgyNy9waG90/by9jb2ZmZWUtYmVh/bnMuanBnP3M9NjEy/eDYxMiZ3PTAmaz0y/MCZjPThuQjVCQV9F/UVpFMWVFZlB1clVs/amNPdEtYcnVCOVJh/OHRHdHhPUVpwRWc9"
+        "image": "/static/images/beans/robusta.jpg"
     },
     {
         "name": "Light Roast",
         "content": "Light roast coffee beans are roasted for a shorter period of time, which preserves more of the original flavors of the bean. This results in a brighter, more acidic cup with fruity and floral notes. Light roast coffee typically has a higher caffeine content by volume and is preferred by those who enjoy a crisp, complex, and more nuanced coffee experience.",
-        "image": "https://imgs.search.brave.com/s7FATi1gtdOaTo03i7b1_nr3AXueGgP3wWkHw1A_f3c/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly93d3cu/d2FrYWNvZmZlZS5j/b20vY2RuL3Nob3Av/YXJ0aWNsZXMvd2hh/dC1pcy1saWdodC1y/b2FzdC1jb2ZmZWVf/MjA0OHgyMDQ4LnBu/Zz92PTE1NjY1MjM0/Nzk"
+        "image": "/static/images/beans/light-roast.jpg"
     },
     {
         "name": "Dark Roast",
@@ -207,9 +207,18 @@ def quiz(q):
                 session['answers'].append(selected)
             is_correct=True
         print(session)
-        return render_template("quiz.html",is_correct=is_correct,feedback_msg=question['feedback'][selected],q=question,next_q=q+1,total=len(quiz_data))
+        return render_template(
+            "quiz.html",
+            is_correct=is_correct,
+            feedback_msg=question['feedback'][selected],
+            q=question,
+            next_q=q+1,
+            total=len(quiz_data),
+            selected=selected,
+            index=q-1
+        )
 
-    return render_template("quiz.html", q=quiz_data[q-1], index=q-1)
+    return render_template("quiz.html", q=quiz_data[q-1], index=q-1, total=len(quiz_data))
 
 
 @app.route("/result")

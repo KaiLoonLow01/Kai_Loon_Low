@@ -3,8 +3,60 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
-<h1>Welcome ☕</h1>
-<p>Learn how to make and understand Americano coffee.</p>
+<section class="hero-panel">
+  <div class="hero-inner">
+    <h2 class="hero-subtitle">Welcome to</h2>
+    <h1 class="hero-title">MAKING AMERICANO</h1>
+  </div>
 
-<a href="/learn/1" class="btn btn-primary">Start Learning</a>
+  <div class="row g-4 mt-1">
+    <div class="col-lg-6">
+      <div class="info-card">
+        <h3 class="info-title">Explained simply</h3>
+        <p class="info-text">
+          Learn what an Americano is, how it is made, and what affects taste.
+          Then test yourself with a short quiz and instant feedback.
+        </p>
+        <div class="d-flex gap-3 flex-wrap justify-content-between">
+          <a href="/learn/1" class="btn btn-brand-dark action-btn">Start Learning</a>
+          <a href="/quiz/1" class="btn btn-brand-light action-btn">Take Quiz</a>
+        </div>
+        <div class="meta-pill">Time: 10-15 min | Lessons: 17</div>
+      </div>
+    </div>
+
+    <div class="col-lg-6">
+      <div class="info-card">
+        <h3 class="info-title">How It Works</h3>
+        <div class="feature-row">
+         <div class="icon-box">
+           <img src="{{ url_for('static', filename='images/1.png') }}" alt="" class="feature-icon">
+         </div>
+          <div>
+            <h4>Learn</h4>
+            <p>Short lessons with one key takeaway.</p>
+          </div>
+        </div>
+        <div class="feature-row">
+         <div class="icon-box">
+           <img src="{{ url_for('static', filename='images/2.png') }}" alt="" class="feature-icon">
+         </div>
+          <div>
+            <h4>Quiz</h4>
+            <p>Quick questions to check understanding.</p>
+          </div>
+        </div>
+        <div class="feature-row">
+         <div class="icon-box">
+           <img src="{{ url_for('static', filename='images/3.png') }}" alt="" class="feature-icon">
+         </div>
+          <div>
+            <h4>Feedback</h4>
+            <p>Immediate explanations after each answer.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 {% endblock %}

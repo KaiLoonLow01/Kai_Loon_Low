@@ -3,19 +3,18 @@
 {% block title %}Done Learning{% endblock %}
 
 {% block content %}
-<div class="text-center my-5">
-
-  <h1 class="mb-4">Done Learning!</h1>
-
-  <p class="mb-4">
+<section class="complete-wrap text-center">
+  <h1 class="complete-title">Done Learning!</h1>
+  <div class="complete-note">
     Test your knowledge of Americano brewing steps before moving ahead.
-  </p>
-
-  <h2 class="mb-3">Ready for the quiz?</h2>
-
-  <a href="/quiz/1" class="btn btn-dark">
-    Start Quiz
-  </a>
-
-</div>
+  </div>
+  <div class="row align-items-center justify-content-center mt-5 g-3">
+    <div class="col-md-5">
+      <h2 class="complete-subtitle">Ready for the quiz?</h2>
+    </div>
+    <div class="col-md-5">
+      <a href="/quiz/1" class="btn btn-brand-dark w-50 py-3 complete-btn">Start Quiz</a>
+    </div>
+  </div>
+</section>
 {% endblock %}

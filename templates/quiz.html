@@ -3,71 +3,127 @@
 {% block title %}Quiz{% endblock %}
 
 {% block content %}
-<h2 class="mb-4">{{ q.question }}</h2>
-
-<div class="row g-4 align-items-start">
-
-  <!-- LEFT: Options (your original form, just wrapped in a column) -->
-  <div class="col-md-8">
-    <form method="POST">
-      {% for opt in q.options %}
-        <div class="form-check mb-2">
-          <input
-            class="form-check-input"
-            type="radio"
-            name="answer"
-            id="opt{{ loop.index }}"
-            value="{{ opt }}"
-            required
-            {% if selected is defined and selected == opt %}checked{% endif %}
-          >
-          <label class="form-check-label" for="opt{{ loop.index }}">{{ opt }}</label>
-        </div>
-      {% endfor %}
-
-      <button type="submit" class="btn btn-primary mt-3" 
-      {% if feedback_msg is defined and feedback_msg %}
-      disabled
-      {% endif %}
-      >Submit</button>
-    </form>
+<section class="quiz-wrap {% if feedback_msg %}has-feedback{% endif %}">
+  
+  <!-- Header -->
+  <div class="d-flex justify-content-between align-items-center flex-wrap gap-3">
+    <h1 class="quiz-question">{{ q.question }}</h1>
+    <div class="quiz-counter">
+      Quiz: {{ (index + 1) if index is defined else (next_q - 1) }}/{{ total if total is defined else 5 }}
+    </div>
   </div>
 
- 
-  <div class="col-md-4">
-    {% if feedback_msg is defined and feedback_msg %}
-      <div class="card shadow-sm border-2
-           {% if is_correct %}border-success{% else %}border-danger{% endif %}">
-        <div class="card-body">
+  <div class="row mt-3 g-4 align-items-start">
 
-          <h5 class="card-title mb-2">
-            {% if is_correct %}Correct{% else %}Incorrect{% endif %}
-          </h5>
-          <p class="card-text mb-0">{{ feedback_msg }}</p>
+    <!-- LEFT: OPTIONS + SUBMIT -->
+    <div class="col-lg-7 quiz-left">
+      <form method="POST" id="quizForm" class="quiz-form">
 
-          {% if (not is_correct) and q.answer %}
-            <hr class="my-3">
-            <div class="small text-muted">Correct answer</div>
-            <div class="fw-semibold">{{ q.answer }}</div>
-          {% endif %}
+        {% for opt in q.options %}
+          <label class="quiz-option
+            {% if feedback_msg and selected == opt and is_correct %}
+              option-correct
+            {% elif feedback_msg and selected == opt and not is_correct %}
+              option-incorrect
+            {% endif %}
+          ">
 
-          
-            <hr class="my-3">
-            
-          
+            <input 
+              type="radio" 
+              name="answer" 
+              value="{{ opt }}" 
+              required
+              {% if selected == opt %}checked{% endif %}
+              {% if feedback_msg %}disabled{% endif %}
+            >
 
-        </div>
-      </div>
+            <span class="option-text">
+              {{ "ABCD"[loop.index0] }}. {{ opt }}
+            </span>
+          </label>
+        {% endfor %}
+
+        <!-- Submit Button BELOW options -->
+        {% if not feedback_msg %}
+          <button type="submit" class="btn btn-brand-dark submit-btn mt-3 w-100">
+            Submit
+          </button>
+        {% endif %}
+
+      </form>
+    </div>
+
+    <!-- RIGHT: FEEDBACK / NEXT -->
+    <div class="col-lg-5 quiz-right">
+      <div class="quiz-side-panel {% if feedback_msg %}panel-feedback{% else %}panel-submit{% endif %}">
+
+        {% if feedback_msg %}
+          <div class="feedback-card 
+            {% if is_correct %}feedback-correct{% else %}feedback-incorrect{% endif %}
+            feedback-enter">
+
+            <h3>{% if is_correct %}Correct{% else %}Incorrect{% endif %}</h3>
+            <p>{{ feedback_msg }}</p>
+
+            {% if not is_correct and q.answer %}
+              <p class="m-0">
+                <strong>Correct answer:</strong> {{ q.answer }}
+              </p>
+            {% endif %}
+          </div>
+
+          <a href="/quiz/{{ next_q }}" 
+             class="btn btn-brand-light action-btn mt-3 feedback-enter feedback-next-btn">
+
+            {% if next_q > total %}
+              See Result
+            {% else %}
+              Next Quiz
+            {% endif %}
+          </a>
+
+        {% else %}
     
-      <a href="/quiz/{{ next_q }}" class="btn btn-success w-100">
-      {% if next_q>total %}
-        See Result
-      {% else %}
-        Next Quiz
-      {% endif %}
-      </a>
-    {% endif %}
-  </div>
+        {% endif %}
 
-</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+{% endblock %}
+
+
+{% block extra_script %}
+<script>
+  $(function () {
+    const $form = $("#quizForm");
+    const $btn = $form.find("button[type='submit']");
+
+    if (!$form.length || $("section.quiz-wrap").hasClass("has-feedback")) {
+      return;
+    }
+
+    let submitting = false;
+
+    $form.on("submit", function (e) {
+      if (submitting) return;
+
+      e.preventDefault();
+      submitting = true;
+
+      // Disable button immediately
+      $btn.prop("disabled", true).text("Submitting...");
+
+      // Optional UI effect
+      $(".quiz-wrap").addClass("is-submitting");
+
+      // Allow form to submit after small delay (animation feel)
+      setTimeout(function () {
+        $form.off("submit");
+        $form.trigger("submit");
+      }, 200);
+    });
+  });
+</script>
 {% endblock %}

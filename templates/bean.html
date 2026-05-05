@@ -3,44 +3,24 @@
 {% block title %}Bean{% endblock %}
 
 {% block content %}
-
-<div class="card p-4 shadow">
-
-    <div class="row">
-
-        <!-- TEXT -->
-        <div class="col-md-6">
-            <h2>{{ bean.name }}</h2>
-            <p class="mt-3">{{ bean.content }}</p>
-
-            <!-- Buttons -->
-            <div class="mt-4">
-
-                <a href="/learn/10" class="btn btn-success">
-                    Select This Bean
-                </a>
-
-                <!-- Next Bean -->
-                {% if index + 1 < total %}
-                    <a href="/learn/{{ step + 1 }}" class="btn btn-primary">
-                        Next Bean →
-                    </a>
-                {% else %}
-                    <a href="/learn/{{ step + 1 }}" class="btn btn-secondary">
-                        Finish Exploration
-                    </a>
-                {% endif %}
-
-            </div>
-        </div>
-
-        <!-- IMAGE -->
-        <div class="col-md-6 text-center">
-            <img src="{{ bean.image }}" class="img-fluid rounded shadow" style="max-height: 300px;">
-        </div>
-
+<section class="learning-view">
+  <div class="row g-4 align-items-center">
+    <div class="col-lg-6">
+      <h1 class="lesson-title">{{ bean.name }}</h1>
+      <p class="lesson-text">{{ bean.content }}</p>
+      <div class="d-flex gap-3 mt-4 flex-wrap">
+        <a href="/learn/10" class="btn btn-brand-dark action-btn">Select This Bean</a>
+        {% if index + 1 < total %}
+          <a href="/learn/{{ step + 1 }}" class="btn btn-brand-light action-btn">Next Bean</a>
+        {% else %}
+          <a href="/learn/{{ step + 1 }}" class="btn btn-brand-light action-btn">Finish Exploration</a>
+        {% endif %}
+      </div>
     </div>
-
-</div>
+    <div class="col-lg-6">
+      <img src="{{ bean.image }}" alt="{{ bean.name }}" class="lesson-image">
+    </div>
+  </div>
+</section>
 
 {% endblock %}
